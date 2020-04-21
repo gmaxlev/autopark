@@ -12,9 +12,340 @@ html(lang="ru")
         title Title
 
         link(rel="stylesheet", href="css/main.css")
+        script(src="//www.youtube.com/player_api")
         script(src="js/jquery.min.js")
+        script(src="js/jquery.mask.min.js")
+        script(src="js/jquery.validate.min.js")
+        script(src="js/jquery.fancybox.min.js")
+        script(src="js/wow.min.js")
+
+        script.
+            $(document).ready(function() {
+                var req = new XMLHttpRequest();
+                req.onload = function(e) {
+                    var svg = document.implementation.createHTMLDocument('');
+                    svg.body.innerHTML = e.target.response.replace('<svg ', '<svg style="display: none"');
+                    document.body.appendChild(svg.body.firstElementChild);
+                    svg = null;
+                };
+                req.open('GET', './img/sprite.defs.svg', true);
+                req.responseType = 'text';
+                req.send();
+            });
 
     body
 
+    // ==============
+    // МОДАЛЬНОЕ ОКНО
+    // ==============
+    .modal#modal-1
+        .modal__sended
+            img(src="img/ok.svg", alt="")
+            span Спасибо! <br> Ожидайте звонка.
+            .modal__sended-button
+                button.button.button_c Закрыть
+        .modal__content
+            button.modal__close
+            .popform
+                .popform__header Отвечаете всем требованиям? 
+                .popform__list
+                    ul.listdots
+                        li.listdots__item возраст 20−60 лет
+                        li.listdots__item поддержка чистоты в машине (уход как за своей), экономичный и комфортный стиль езды
+                        li.listdots__item отсутствие алко- и наркозависимостей
+                        li.listdots__item отсутствие судимостей
+                .popform__motiv Заполняйте форму! Мы перезвоним и расскажем подробнее про условия сотрудничества
+                form.modal-form.modal-form-type-1(name="Форма №1")
+                    .modal-form__sendError
+                        span <b>Не удалось отправить форму.</b> <br>Попробуйте ещё раз.
+                    .modal-form__iteminput
+                        .input-text
+                            input(type="text" name="name" placeholder="Ваше имя")
+                            .input-text__icon
+                                +svg-sprite('svg_user', 'svg-sprite')
+                    .modal-form__iteminput
+                        .input-text
+                            input(type="text" name="phone" placeholder="Телефон").phone-input
+                            .input-text__icon
+                                +svg-sprite('svg_phone', 'svg-sprite')
+                    .modal-form__submit
+                        button(type="submit").button.button_b Узнайте условия
+
+    .wrapper
+
+        // ======
+        // HEADER
+        // ======
+        .header.wow.fadeInDown(data-wow-delay="0.6s")
+            .container
+                .header__content
+                    .header__logo
+                        img(src="img/logo.png", alt="")
+                    .header__address г. Киев, ул. Ольжича 29
+                    .header__call
+                        .header-call
+                            a(href="tel:0665287509").header-call__go
+                                +svg-sprite('svg_shake_phone', 'svg-sprite')
+                                span (066) 528-75-09
+                            button.button.button_a(data-modal="modal-1") Заказать звонок
+
+        // ===========
+        // ПРИВЕТСТВИЕ
+        // ===========
+        .intro
+            .intro__video
+                div
+                    video(autoplay="autoplay" muted="muted" loop="loop")
+                        source(src="videos/bg.mp4" type="video/mp4")
+            .container
+                .intro__content
+                    .intro__text
+                        .welcome
+                            .welcome__header.wow.fadeInUp Работа в такси <br> <span>Uber, bolt, Uklon <br>на авто компании</span>
+                            .welcome__price.wow.fadeInUp(data-wow-delay="0.2s")
+                                .staraccent
+                                    +svg-sprite('svg_star', 'svg-sprite')
+                                    | до 70% от кассы
+                            .welcome__subheader.wow.fadeInUp(data-wow-delay="0.4s") по мнению водителей, лучшие условия в Киеве
+                            .welcome__act.wow.fadeInUp(data-wow-delay="0.6s")
+                                button.button.button_b(data-modal="modal-1") Узнайте условия
+                    .intro__act
+                        .gopresent
+                            .gopresent__man
+                                img(src="img/full-shot11-582x1024.png", alt="")
+                            a(href="https://www.youtube.com/watch?v=3swr2A55rJ8" data-fancybox data-wow-delay="0.6s").gotoplay.wow.zoomIn
+                                span
+                                +svg-sprite('svg_play', 'svg-sprite')
+                                .gotoplay__header Презентация
+        
+        // =============================
+        // СКОЛЬКО ЗАРАБАТЫВАЮТ ВОДИТЕЛИ
+        // =============================
+        section.section
+            .container
+                .income
+                    .income__about
+                        h2.section-header.wow.fadeInUp Сколько зарабатывают <br><span>водители КиевАвтопар</span>
+                        p.ptext.wow.fadeInUp(data-wow-delay="0.1s") В других службах вам могут обещать заработок до 40 000 грн. Но это без учета комиссии и расходов на топливо.
+                        p.paccent.wow.fadeInUp(data-wow-delay="0.2s") Наши водители в летний период зарабатывают
+                        .income__by.wow.fadeInUp(data-wow-delay="0.3s")
+                            .staraccent.staraccent_small
+                                +svg-sprite('svg_star', 'svg-sprite')
+                                | до 30 000 грн чистыми!
+                        p.ptext.wow.fadeInUp(data-wow-delay="0.4s") Все благодаря правильно организованной работе, низкой комиссии и справедливой системе бонусов. Мы сами платим за вас налоги! Когда водители такси со стажем приходят в КиевАвтопарк, они часто признаются:
+                        .quote.wow.fadeInUp(data-wow-delay="0.5s") « У Вас <span>лучшие условия</span> в городе »
+                    .income__list
+                        .edges
+                            .edges__item.wow.fadeInUp(data-wow-delay="0.1s")
+                                .edge
+                                    .edge__content
+                                        .edge__money до <span>22 000</span> грн
+                                        .edge__comment бонус «Приведи друга»
+                                        .edge__icon
+                                            img(src="img/icons8-receive_cash.png", alt="")
+                            .edges__item.wow.fadeInUp(data-wow-delay="0.2s")
+                                .edge
+                                    .edge__content
+                                        .edge__money от <span>300</span> до <span>2000</span> грн
+                                        .edge__comment еженедельный бонус за отработанные часы
+                                        .edge__icon
+                                            img(src="img/icons8-women`s_watch.png", alt="")
+                            .edges__item.wow.fadeInUp(data-wow-delay="0.3s")
+                                .edge
+                                    .edge__content
+                                        .edge__money <span>1 000</span> грн
+                                        .edge__comment бонус «Приведи друга»
+                                        .edge__icon
+                                            img(src="img/icons8-friends.png", alt="")
+                            .edges__item.wow.fadeInUp(data-wow-delay="0.4s")
+                                .edge
+                                    .edge__content
+                                        .edge__money.edge__money_uc
+                                            span Бесплатно
+                                        .edge__comment проживание, СТО и шиномонтаж
+                                        .edge__icon
+                                            img(src="img/icons8-car_cleaning.png", alt="")
+        
+        // ==================================
+        // ДЛЯ ЛУЧШИХ ВОДИТЕЛЕЙ - СПЕЦУСЛОВИЯ
+        // ==================================
+        section.section.section_accent.section_drivers
+            .container
+                .terms
+                    h2.section-header.section-header_rev.wow.fadeInRight(data-wow-delay="0.1s") Для лучших водителей - <span>спецусловия</span>
+                    .terms__about.wow.fadeInRight(data-wow-delay="0.2s")
+                        p.atext Если вы готовы работать по 13-14 часов и доказали свою ответственность и профессионализм - мы выделяем вам отдельное авто и повышаем процент.
+                    .terms__accent.wow.fadeInRight(data-wow-delay="0.3s")
+                        .big-staraccent
+                            +svg-sprite('svg_star', 'svg-sprite')
+                            | А благодаря дополнительным бонусам <br>вы зарабатываете до 7 000 грн <br>в неделю (30 000 в месяц)
+                    .terms__act.wow.fadeInRight(data-wow-delay="0.4s")
+                        button.button.button_b(data-modal="modal-1") Пройти собеседование
+
+        // =========================
+        // ЧТО ГОВОРЯТ НАШИ ВОДИТЕЛИ
+        // =========================
+        section.section
+            .container
+                h2.section-header.section-header_center.wow.fadeInUp Что говорят <span>наши водители?</span>
+                //- .reviews-loading 
+                    img(src="img/loading-preview.gif", alt="")
+                    span Загрузка
+                .reviews
+                    .reviews__item.wow.zoomIn(data-wow-delay="0.1s")
+                        a.review(href="https://www.youtube.com/watch?v=YtDYdvCQLI4" data-fancybox="reviews" style="background-image: url(img/review-1.png)")
+                            button.review__watch
+                                img(src="img/icons8-play_record.png", alt="").review__onReady
+                                img(src="img/loading.gif", alt="").review__onLoading
+                            .review__video(data-video-id="review-video-1")
+                                #review-video-1
+                    .reviews__item.wow.zoomIn(data-wow-delay="0.2s")
+                        .review(href="https://www.youtube.com/watch?v=KreTi0tQmb4" data-fancybox="reviews" style="background-image: url(img/review-2.png)")
+                            button.review__watch
+                                img(src="img/icons8-play_record.png", alt="").review__onReady
+                                img(src="img/loading.gif", alt="").review__onLoading
+                            .review__video(data-video-id="review-video-2")
+                                #review-video-2
+                    .reviews__item.wow.zoomIn(data-wow-delay="0.3s")
+                        .review(href="https://www.youtube.com/watch?v=6Y7mugD20vc" data-fancybox="reviews" style="background-image: url(img/review-3.png)")
+                            button.review__watch
+                                img(src="img/icons8-play_record.png", alt="").review__onReady
+                                img(src="img/loading.gif", alt="").review__onLoading
+                            .review__video(data-video-id="review-video-3")
+                                #review-video-3
+                    .reviews__item.wow.zoomIn(data-wow-delay="0.4s")
+                        .review(href="https://www.youtube.com/watch?v=haPn9IPTttk" data-fancybox="reviews" style="background-image: url(img/review-4.png)")
+                            button.review__watch
+                                img(src="img/icons8-play_record.png", alt="").review__onReady
+                                img(src="img/loading.gif", alt="").review__onLoading
+                            .review__video(data-video-id="review-video-4")
+                                #review-video-4
+                    .reviews__item.wow.zoomIn(data-wow-delay="0.5s")
+                        .review(href="https://www.youtube.com/watch?v=g4IQRkv5vyc" data-fancybox="reviews" style="background-image: url(img/review-5.png)")
+                            button.review__watch
+                                img(src="img/icons8-play_record.png", alt="").review__onReady
+                                img(src="img/loading.gif", alt="").review__onLoading
+                            .review__video(data-video-id="review-video-5")
+                                #review-video-5
+                    .reviews__act.wow.zoomIn(data-wow-delay="0.6s")
+                        button.button.button_b(data-modal="modal-1") Узнайте о вакансиях
+
+        // ====================================
+        // ДЛЯ ИНОГОРОДНЫХ ПРОЖИВАНИЕ БЕСПЛАТНО
+        // ====================================
+        section.section.section_accent
+            .container
+                .arts
+                    .arts__item
+                        .arts__text
+                            h2.section-header.section-header_rev-light.wow.fadeInLeft(data-wow-delay="0.1s") Для иногородних - проживание <span>бесплатно</span>
+                            p.arts__about.atext.wow.fadeInLeft(data-wow-delay="0.2s") Мы арендуем хостел совсем рядом с базой. Вам не нужно платить бешеные деньги за квартиру в Киеве, кроме того - вы можете в любой момент уехать домой, ваше место никто не займет
+                            .arts__accent.wow.fadeInLeft(data-wow-delay="0.3s")
+                                .big-staraccent.big-staraccent_xsshow
+                                    +svg-sprite('svg_star', 'svg-sprite')
+                                    div
+                                        | <span>И до работы рукой подать.</span> <br>Разве не удобно?
+                        .arts__image.wow.fadeInRight(data-wow-delay="0.4s")
+                            img(src="img/man-sleeping-on-a-sofa-1.png", alt="").md
+                            img(src="img/man-sleeping-on-a-sofa-1.sm.png", alt="").sm
+                    .arts__item
+                        .arts__image.arts__image_left.wow.fadeInLeft(data-wow-delay="0.4s")
+                            img(src="img/cars.png", alt="").md
+                            img(src="img/cars.sm.png", alt="").sm
+                        .arts__text.arts__text_right
+                            h2.section-header.section-header_rev-light.wow.fadeInRight(data-wow-delay="0.1s") <span>60</span> собственных автомобилей
+                            p.arts__about.atext.wow.fadeInRight(data-wow-delay="0.2s") Благодаря большому автопарку вы всегда можете пересесть на другую машину в случае поломки и ДТП
+                            .arts__accent.wow.fadeInRight(data-wow-delay="0.3s")
+                                .big-staraccent.big-staraccent_xsshow
+                                    +svg-sprite('svg_star', 'svg-sprite')
+                                    div
+                                        | Никаких простоев <br><span>и потерянного заработка!</span>
+                    .arts__item
+                        .arts__text
+                            h2.section-header.section-header_rev-light.wow.fadeInLeft(data-wow-delay="0.1s") <span>Собственное</span><br> СТО и шиномонтаж
+                            p.arts__about.atext.wow.fadeInLeft(data-wow-delay="0.2s") Мало того, что вы работаете на авто компании - все заботы о технической исправности мы тоже берем на себя.
+                            .arts__accent.wow.fadeInLeft(data-wow-delay="0.3s")
+                                .big-staraccent.big-staraccent_xsshow
+                                    +svg-sprite('svg_star', 'svg-sprite')
+                                    div
+                                        | <span>Вы не вкладываете в машину</span> <br>ни копейки
+                            .arts__act.wow.fadeInLeft(data-wow-delay="0.4s")
+                                button.button.button_b(data-modal="modal-1") Пройти собеседование
+                        .arts__image.wow.fadeInRight(data-wow-delay="0.5s")
+                            img(src="img/stolviv.png", alt="").md
+                            img(src="img/stolviv.sm.png", alt="").sm
+
+        // ============================
+        // КАКОЙ СЕКРЕТ ВЫСОКИХ ЗАРПЛАТ
+        // ============================
+        section.section
+            .container
+                h2.section-header.section-header_center.wow.fadeInUp(data-wow-delay="0.1s") <span>Какой секрет</span> высоких зарплат <span>в КиевАвтопарк?</span>
+                p.section-subheader.wow.fadeInUp(data-wow-delay="0.2s") Постоянное обучение и круглосуточная поддержка
+                .secrets
+                    .secrets__item.wow.fadeInUp(data-wow-delay="0.1s") 
+                        .secrets__icon.wow.zoomIn(data-wow-delay="0.1s")
+                            +svg-sprite('svg_headset', 'svg-sprite')
+                        .secrets__name.wow.fadeInUp(data-wow-delay="0.2s")  Выбор локаций
+                        .secrets__comment.wow.fadeInUp(data-wow-delay="0.2s")  Оператор мониторит эфир и подскажет вам, где сечас большой спрос и можно хорошо заработать
+                    .secrets__item.wow.fadeInUp(data-wow-delay="0.2s") 
+                        .secrets__icon.wow.zoomIn(data-wow-delay="0.2s")
+                            +svg-sprite('svg_handshake', 'svg-sprite')
+                        .secrets__name.wow.fadeInUp(data-wow-delay="0.3s")  Решение проблем
+                        .secrets__comment.wow.fadeInUp(data-wow-delay="0.3s")  При возникновении конфликтов с клиентами, вам помогают их решить
+                    .secrets__item.wow.fadeInUp(data-wow-delay="0.3s") 
+                        .secrets__icon.wow.zoomIn(data-wow-delay="0.3s")
+                            +svg-sprite('svg_time', 'svg-sprite')
+                        .secrets__name.wow.fadeInUp(data-wow-delay="0.4s")  Оптимизация времени
+                        .secrets__comment.wow.fadeInUp(data-wow-delay="0.4s")  Как правильно питаться, как ускорить пересменку, как сократить простои - все расскажем
+                    .secrets__item.wow.fadeInUp(data-wow-delay="0.4s") 
+                        .secrets__icon.wow.zoomIn(data-wow-delay="0.4s")
+                            +svg-sprite('svg_gasoline_refill', 'svg-sprite')
+                        .secrets__name.wow.fadeInUp(data-wow-delay="0.5s")  Сокращение расходов
+                        .secrets__comment.wow.fadeInUp(data-wow-delay="0.5s")  Экономия топлива - это наши с вами деньги. Мы объясним, как свести расходы до минимума
+        
+        // ===========
+        // МЫ ЖДЕМ ВАС
+        // ===========
+        section.section.section_accent.section_steps
+            .container
+                h2.section-header.section-header_center.section-header_light.wow.fadeInUp(data-wow-delay="0.1s")  P.S. <span>Мы ждем Вас!</span>
+                .steps
+                    .steps__item.wow.fadeInLeft(data-wow-delay="0.1s") 
+                        .steps__icon.steps__icon_next
+                            img(src="img/icons8-double_left.png", alt="")
+                        .steps__comment
+                            button.button.button_a(data-modal="modal-1") Оставьте контакты
+                    .steps__item.wow.fadeInLeft(data-wow-delay="0.5s") 
+                        .steps__icon.steps__icon_next
+                            img(src="img/icons8-double_left.png", alt="")
+                        .steps__comment После собеседования мы <br>зарегистрируем вас в системе
+                    .steps__item.steps__item_end.wow.fadeInLeft(data-wow-delay="0.9s") 
+                        .steps__icon
+                            img(src="img/icons8-cab_stand.png", alt="")
+                        .steps__comment Уже завтра вы <br>на смене и зарабатываете деньги
+        
+        // =====
+        // КАРТА
+        // =====
+        .map
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d897.6347197757782!2d30.442407269282093!3d50.480309790121446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cdbbba3b1d91%3A0x49fee4f130bd45a2!2z0YPQuy4g0J7Qu9GM0LbQuNGH0LAsIDI5LCDQmtC40LXQsiwgMDIwMDA!5e0!3m2!1sru!2sua!4v1587475365362!5m2!1sru!2sua" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+        // ======
+        // FOOTER
+        // ======
+        .footer
+            .container
+                .footer__content
+                    .footer__copy
+                        span © 2020. КиївАвтопарк. Все права защищены
+                        img(src="img/tkachuk.pro.png", alt="Разработка: tkachuk.pro")
+                    .footer__address г. Киев, ул. Ольжича 29
+                    .footer__call
+                        .header-call
+                            a(href="tel:0665287509").header-call__go
+                                +svg-sprite('svg_shake_phone', 'svg-sprite')
+                                span (066) 528-75-09
+                            button.button.button_a(data-modal="modal-1") Заказать звонок
         
         script(src="js/main.js")

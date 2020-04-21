@@ -1,0 +1,48 @@
+.big-staraccent {
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: $color-2;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.875rem;
+  padding-left: 30px;
+  @include media-breakpoint-down(sm) {
+    font-size: 1.2rem;
+  }
+  @include media-breakpoint-down(xs) {
+    font-size: 1rem;
+    line-height: 1.5;
+    padding-left: 0;
+  }
+  & > div > span {
+    color: $color-1;
+  }
+  & > svg {
+    width: 35px;
+    height: 35px;
+    fill: $color-2;
+    position: absolute;
+    top: -6px;
+    left: -13px;
+    @include media-breakpoint-down(xs) {
+      display: none;
+    }
+  }
+}
+
+.big-staraccent_small {
+  @include media-breakpoint-down(xs) {
+    font-size: 1.1rem;
+  }
+}
+.big-staraccent_xsshow {
+  @include media-breakpoint-down(xs) {
+    padding-left: 20px;
+  }
+  & > svg {
+    @include media-breakpoint-down(xs) {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+.section-header {
+  font-weight: 800;
+  font-size: 2.5rem;
+  line-height: 2.9rem;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 53px;
+  & > span {
+    font-weight: 500;
+  }
+  @include media-breakpoint-down(sm) {
+    font-size: 2rem;
+    line-height: 2.2rem;
+    margin-bottom: 25px;
+  }
+}
+
+.section-header_rev {
+  font-weight: 500;
+  & > span {
+    color: $color-2;
+    font-weight: 800;
+  }
+}
+
+.section-header_rev-light {
+  font-weight: 500;
+  & > span {
+    color: $color-1;
+    font-weight: 800;
+  }
+}
+
+.section-header_center {
+  text-align: center;
+}
+.section-header_light {
+  color: $color-2;
+  & > span {
+    color: $color-1;
+  }
+}

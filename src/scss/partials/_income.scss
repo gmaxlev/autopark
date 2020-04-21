@@ -1,0 +1,30 @@
+.income {
+  display: flex;
+  justify-content: space-between;
+  @include media-breakpoint-down(md) {
+    flex-wrap: wrap;
+  }
+}
+
+.income__about {
+  width: 50%;
+  @include media-breakpoint-down(md) {
+    width: 100%;
+    text-align: center;
+  }
+}
+.income__by {
+  margin: -12px 0 28px;
+}
+
+.income__list {
+  max-width: 490px;
+  padding-left: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  @include media-breakpoint-down(md) {
+    width: 100%;
+    padding-left: 0;
+    margin: 50px auto 0;
+  }
+}

@@ -1,0 +1,14 @@
+.quote {
+  font-weight: 600;
+  font-size: 1.625rem;
+  line-height: 1.875rem;
+  text-transform: uppercase;
+  @include media-breakpoint-down(xs) {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  & > span {
+    color: $color-7;
+    font-weight: 800;
+  }
+}

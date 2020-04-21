@@ -1,0 +1,22 @@
+.listdots {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 10px;
+}
+
+.listdots__item {
+  padding-left: 25px;
+  line-height: 1.5rem;
+  position: relative;
+  &::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background-color: $color-13;
+    position: absolute;
+    border-radius: 50%;
+    top: 10px;
+    left: 0;
+  }
+}

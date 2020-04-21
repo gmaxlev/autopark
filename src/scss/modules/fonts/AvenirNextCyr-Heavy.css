@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "Avenir Next Cyr";
+  src: url("../fonts/AvenirNextCyr-Heavy.eot"); /* IE9 */
+  src: url("../fonts/AvenirNextCyr-Heavy.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../fonts/AvenirNextCyr-Heavy.woff") format("woff"),
+    /* chrome, firefox */ url("../fonts/AvenirNextCyr-Heavy.ttf")
+      format("truetype"),
+    /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+      url("../fonts/AvenirNextCyr-Heavy.svg#Avenir Next Cyr Heavy")
+      format("svg"); /* iOS 4.1- */
+  font-style: normal;
+  font-weight: 800;
+}

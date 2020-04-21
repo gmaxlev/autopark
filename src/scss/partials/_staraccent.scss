@@ -1,0 +1,29 @@
+.staraccent {
+  font-weight: 800;
+  font-size: 2.125rem;
+  color: $color-2;
+  margin-left: -10px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  @include media-breakpoint-down(xs) {
+    font-size: 1.7rem;
+  }
+  & > svg {
+    width: 35px;
+    height: 35px;
+    fill: $color-2;
+    margin-right: 8px;
+    transform: translateY(5px);
+    @include media-breakpoint-down(xs) {
+      transform: translateY(2px);
+    }
+  }
+}
+
+.staraccent_small {
+  @include media-breakpoint-down(xs) {
+    font-size: 1.1rem;
+  }
+}

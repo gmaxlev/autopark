@@ -1,0 +1,152 @@
+@keyframes gotoplay-main {
+  from {
+    height: 143px;
+    width: 143px;
+  }
+
+  to {
+    height: 113px;
+    width: 113px;
+  }
+}
+@keyframes gotoplay-before {
+  from {
+    width: 97px;
+    height: 97px;
+  }
+
+  to {
+    height: 67px;
+    width: 67px;
+  }
+}
+@keyframes gotoplay-after {
+  from {
+    width: 50px;
+    height: 50px;
+  }
+
+  to {
+    height: 25px;
+    width: 25px;
+  }
+}
+@keyframes gotoplay-icon {
+  from {
+    opacity: 0.5;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.gotoplay {
+  height: 143px;
+  width: 143px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  @include media-breakpoint-down(xs) {
+    transform: scale(0.8);
+  }
+  & > svg {
+    animation: gotoplay-icon 0.8s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-out;
+  }
+  & > span {
+    animation: gotoplay-main 0.8s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-out;
+  }
+  &::before {
+    animation: gotoplay-before 0.8s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 0.1s;
+    animation-timing-function: ease-out;
+  }
+  &::after {
+    animation: gotoplay-after 0.8s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 0.2s;
+    animation-timing-function: ease-out;
+  }
+
+  & > svg {
+    fill: $color-3;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    z-index: 3;
+  }
+
+  & > span {
+    background-color: transparentize($color: $color-5, $amount: 0.8);
+    border-radius: 50%;
+    z-index: 2;
+    position: absolute;
+    height: 143px;
+    width: 143px;
+  }
+
+  &::before {
+    content: "";
+    width: 97px;
+    height: 97px;
+    border-radius: 50%;
+    background-color: transparentize($color: $color-5, $amount: 0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+
+  &::after {
+    content: "";
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: $color-5;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+}
+
+.gotoplay__header {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  position: absolute;
+  top: calc(100% - 10px);
+  letter-spacing: 1.6px;
+  color: $color-1;
+  @include media-breakpoint-down(md) {
+    text-shadow: 0 0 5px black;
+  }
+  @include media-breakpoint-down(xs) {
+    transform: scale(1.2);
+  }
+  &::after {
+    content: "";
+    height: 23px;
+    width: 1px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: calc(100% + 9px);
+    display: block;
+    background-color: #fff;
+    z-index: 4;
+  }
+}

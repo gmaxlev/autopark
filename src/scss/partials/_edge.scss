@@ -1,0 +1,63 @@
+.edge {
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  padding: 14px 43px;
+  box-shadow: 0 6px 13px rgba(120, 120, 120, 0.25);
+  @include media-breakpoint-down(xs) {
+    padding: 20px;
+  }
+}
+
+.edge__icon {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  height: 82%;
+  left: 0;
+  max-width: 55px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include media-breakpoint-down(xs) {
+    max-width: 30px;
+  }
+  & > img {
+    max-width: 100%;
+  }
+}
+
+.edge__content {
+  border: 1px solid #e7e7e7;
+  text-align: right;
+  padding: 15px;
+  padding-left: 30px;
+  position: relative;
+  &::after {
+    content: "";
+    height: 31px;
+    width: 5px;
+    position: absolute;
+    background-color: #fff;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -3px;
+  }
+}
+
+.edge__money {
+  font-weight: 800;
+  font-size: 1.5rem;
+  margin-bottom: 9px;
+  & > span {
+    color: $color-7;
+  }
+}
+.edge__money_uc {
+  text-transform: uppercase;
+}
+.edge__comment {
+  color: $color-6;
+  font-size: 0.9375rem;
+}

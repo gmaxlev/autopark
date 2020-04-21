@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Title</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="//www.youtube.com/player_api"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.mask.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var req = new XMLHttpRequest();
+            req.onload = function(e) {
+                var svg = document.implementation.createHTMLDocument('');
+                svg.body.innerHTML = e.target.response.replace('<svg ', '<svg style="display: none"');
+                document.body.appendChild(svg.body.firstElementChild);
+                svg = null;
+            };
+            req.open('GET', './img/sprite.defs.svg', true);
+            req.responseType = 'text';
+            req.send();
+        });
+    </script>
+</head>
+
+<body></body><!-- ==============-->
+<!-- МОДАЛЬНОЕ ОКНО-->
+<!-- ==============-->
+<div class="modal" id="modal-1">
+    <div class="modal__sended"><img src="img/ok.svg" alt="" /><span>Спасибо! <br> Ожидайте звонка.</span>
+        <div class="modal__sended-button"><button class="button button_c">Закрыть</button></div>
+    </div>
+    <div class="modal__content"><button class="modal__close"></button>
+        <div class="popform">
+            <div class="popform__header">Отвечаете всем требованиям? </div>
+            <div class="popform__list">
+                <ul class="listdots">
+                    <li class="listdots__item">возраст 20−60 лет</li>
+                    <li class="listdots__item">поддержка чистоты в машине (уход как за своей), экономичный и комфортный стиль езды</li>
+                    <li class="listdots__item">отсутствие алко- и наркозависимостей</li>
+                    <li class="listdots__item">отсутствие судимостей</li>
+                </ul>
+            </div>
+            <div class="popform__motiv">Заполняйте форму! Мы перезвоним и расскажем подробнее про условия сотрудничества</div>
+            <form class="modal-form modal-form-type-1" name="Форма №1">
+                <div class="modal-form__sendError"><span><b>Не удалось отправить форму.</b> <br>Попробуйте ещё раз.</span></div>
+                <div class="modal-form__iteminput">
+                    <div class="input-text"><input type="text" name="name" placeholder="Ваше имя" />
+                        <div class="input-text__icon"><svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg">
+                                <use xlink:href="#svg_user"></use>
+                            </svg></div>
+                    </div>
+                </div>
+                <div class="modal-form__iteminput">
+                    <div class="input-text"><input class="phone-input" type="text" name="phone" placeholder="Телефон" />
+                        <div class="input-text__icon"><svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg">
+                                <use xlink:href="#svg_phone"></use>
+                            </svg></div>
+                    </div>
+                </div>
+                <div class="modal-form__submit"><button class="button button_b" type="submit">Узнайте условия</button></div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="wrapper">
+    <!-- ======-->
+    <!-- HEADER-->
+    <!-- ======-->
+    <div class="header wow fadeInDown" data-wow-delay="0.6s">
+        <div class="container">
+            <div class="header__content">
+                <div class="header__logo"><img src="img/logo.png" alt="" /></div>
+                <div class="header__address">г. Киев, ул. Ольжича 29</div>
+                <div class="header__call">
+                    <div class="header-call"><a class="header-call__go" href="tel:0665287509"><svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg">
+                                <use xlink:href="#svg_shake_phone"></use>
+                            </svg><span>(066) 528-75-09</span></a><button class="button button_a" data-modal="modal-1">Заказать звонок</button></div>
+                </div>
+            </div>
+        </div>
+    </div><!-- ===========-->
+    <!-- ПРИВЕТСТВИЕ-->
+    <!-- ===========-->
+    <div class="intro">
+        <div class="intro__video">
+            <div><video autoplay="autoplay" muted="muted" loop="loop">
+                    <source src="videos/bg.mp4" type="video/mp4" /></video></div>
+        </div>
+        <div class="container">
+            <div class="intro__content">
+                <div class="intro__text">
+                    <div class="welcome">
+                        <div class="welcome__header wow fadeInUp">Работа в такси <br> <span>Uber, bolt, Uklon <br>на авто компании</span></div>
+                        <div class="welcome__price wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="staraccent"><svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg">
+                                    <use xlink:href="#svg_star"></use>
+                                </svg>до 70% от кассы</div>
+                        </div>
+                        <div class="welcome__subheader wow fadeInUp" data-wow-delay="0.4s">по мнению водителей, лучшие условия в Киеве</div>
+                        <div class="welcome__act wow fadeInUp" data-wow-delay="0.6s"><button class="button button_b" data-modal="modal-1">Узнайте условия</button></div>
+                    </div>
+                </div>
+                <div class="intro__act">
+                    <div class="gopresent">
+                        <div class="gopresent__man"><img src="img/full-shot11-582x1024.png" alt="" /></div><a class="gotoplay wow zoomIn" href="https://www.youtube.com/watch?v=3swr2A55rJ8" data-fancybox="data-fancybox" data-wow-delay="0.6s"><span></span><svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg">
+                                <use xlink:href="#svg_play"></use>
+                            </svg>
+                            <div class="gotoplay__header">Презентация</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- =============================-->
+    <!-- СКОЛЬКО ЗАРАБАТЫВАЮТ ВОДИТЕЛИ-->
+    <!-- =============================-->
+    <section class="section">
+        <div class="container">
+            <div class="income">
+                <div class="income__about">
+                    <h2 class="section-header wow fadeInUp">Сколько зарабатывают <br><span>водители КиевАвтопар</span></h2>
+                    <p class="ptext wow fadeInUp" data-wow-delay="0.1s">В других службах вам могут обещать заработок до 40 000 грн. Но это без учета комиссии и расходов на топливо.</p>
+                    <p class="paccent wow fadeInUp" data-wow-delay="0.2s">Наши водители в летний период зарабатывают</p>
+                    <div class="income__by wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="staraccent staraccent_small"><svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg">
+                                <use xlink:href="#svg_star"></use>
+                            </svg>до 30 000 грн чистыми!</div>
+                    </div>
+                    <p class="ptext wow fadeInUp" data-wow-delay="0.4s">Все благодаря правильно организованной работе, низкой комиссии и справедливой системе бонусов. Мы сами платим за вас налоги! Когда водители такси со стажем приходят в КиевАвтопарк, они часто признаются:</p>
+                    <div class="quote wow fadeInUp" data-wow-delay="0.5s">« У Вас <span>лучшие условия</span> в городе »</div>
+                </div>
+                <div class="income__list">
+                    <div class="edges">
+                        <div class="edges__item wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="edge">
+                                <div class="edge__content">
+                                    <div class="edge__money">до <span>22 000</span> грн</div>
+                                    <div class="edge__comment">бонус «Приведи друга»</div>
+                                    <div class="edge__icon"><img src="img/icons8-receive_cash.png" alt="" /></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="edges__item wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="edge">
+                                <div class="edge__content">
+                                    <div class="edge__money">от <span>300</span> до <span>2000</span> грн</div>
+                                    <div class="edge__comment">еженедельный бонус за отработанные часы</div>
+                                    <div class="edge__icon"><img src="img/icons8-women`s_watch.png" alt="" /></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="edges__item wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="edge">
+                                <div class="edge__content">
+                                    <div class="edge__money"><span>1 000</span> грн</div>
+                                    <div class="edge__comment">бонус «Приведи друга»</div>
+                                    <div class="edge__icon"><img src="img/icons8-friends.png" alt="" /></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="edges__item wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="edge">
+                                <div class="edge__content">
+                                    <div class="edge__money edge__money_uc"><span>Бесплатно</span></div>
+                                    <div class="edge__comment">проживание, СТО и шиномонтаж</div>
+                                    <div class="edge__icon"><img src="img/icons8-car_cleaning.png" alt="" /></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- ==================================-->
+    <!-- ДЛЯ ЛУЧШИХ ВОДИТЕЛЕЙ - СПЕЦУСЛОВИЯ-->
+    <!-- ==================================-->
+    <section class="section section_accent section_drivers">
+        <div class="container">
+            <div class="terms">
+                <h2 class="section-header section-header_rev wow fadeInRight" data-wow-delay="0.1s">Для лучших водителей - <span>спецусловия</span></h2>
+                <div class="terms__about wow fadeInRight" data-wow-delay="0.2s">
+                    <p class="atext">Если вы готовы работать по 13-14 часов и доказали свою ответственность и профессионализм - мы выделяем вам отдельное авто и повышаем процент.</p>
+                </div>
+                <div class="terms__accent wow fadeInRight" data-wow-delay="0.3s">
+                    <div class="big-staraccent"><svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg">
+                            <use xlink:href="#svg_star"></use>
+                        </svg>А благодаря дополнительным бонусам <br>вы зарабатываете до 7 000 грн <br>в неделю (30 000 в месяц)</div>
+                </div>
+                <div class="terms__act wow fadeInRight" data-wow-delay="0.4s"><button class="button button_b" data-modal="modal-1">Пройти собеседование</button></div>
+            </div>
+        </div>
+    </section><!-- =========================-->
+    <!-- ЧТО ГОВОРЯТ НАШИ ВОДИТЕЛИ-->
+    <!-- =========================-->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-header section-header_center wow fadeInUp">Что говорят <span>наши водители?</span></h2>
+            <div class="reviews">
+                <div class="reviews__item wow zoomIn" data-wow-delay="0.1s"><a class="review" href="https://www.youtube.com/watch?v=YtDYdvCQLI4" data-fancybox="reviews" style="background-image: url(img/review-1.png)"><button class="review__watch"><img class="review__onReady" src="img/icons8-play_record.png" alt="" /><img class="review__onLoading" src="img/loading.gif" alt="" /></button>
+                        <div class="review__video" data-video-id="review-video-1">
+                            <div id="review-video-1"></div>
+                        </div>
+                    </a></div>
+                <div class="reviews__item wow zoomIn" data-wow-delay="0.2s">
+                    <div class="review" href="https://www.youtube.com/watch?v=KreTi0tQmb4" data-fancybox="reviews" style="background-image: url(img/review-2.png)"><button class="review__watch"><img class="review__onReady" src="img/icons8-play_record.png" alt="" /><img class="review__onLoading" src="img/loading.gif" alt="" /></button>
+                        <div class="review__video" data-video-id="review-video-2">
+                            <div id="review-video-2"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reviews__item wow zoomIn" data-wow-delay="0.3s">
+                    <div class="review" href="https://www.youtube.com/watch?v=6Y7mugD20vc" data-fancybox="reviews" style="background-image: url(img/review-3.png)"><button class="review__watch"><img class="review__onReady" src="img/icons8-play_record.png" alt="" /><img class="review__onLoading" src="img/loading.gif" alt="" /></button>
+                        <div class="review__video" data-video-id="review-video-3">
+                            <div id="review-video-3"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reviews__item wow zoomIn" data-wow-delay="0.4s">
+                    <div class="review" href="https://www.youtube.com/watch?v=haPn9IPTttk" data-fancybox="reviews" style="background-image: url(img/review-4.png)"><button class="review__watch"><img class="review__onReady" src="img/icons8-play_record.png" alt="" /><img class="review__onLoading" src="img/loading.gif" alt="" /></button>
+                        <div class="review__video" data-video-id="review-video-4">
+                            <div id="review-video-4"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reviews__item wow zoomIn" data-wow-delay="0.5s">
+                    <div class="review" href="https://www.youtube.com/watch?v=g4IQRkv5vyc" data-fancybox="reviews" style="background-image: url(img/review-5.png)"><button class="review__watch"><img class="review__onReady" src="img/icons8-play_record.png" alt="" /><img class="review__onLoading" src="img/loading.gif" alt="" /></button>
+                        <div class="review__video" data-video-id="review-video-5">
+                            <div id="review-video-5"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reviews__act wow zoomIn" data-wow-delay="0.6s"><button class="button button_b" data-modal="modal-1">Узнайте о вакансиях</button></div>
+            </div>
+        </div>
+    </section><!-- ====================================-->
+    <!-- ДЛЯ ИНОГОРОДНЫХ ПРОЖИВАНИЕ БЕСПЛАТНО-->
+    <!-- ====================================-->
+    <section class="section section_accent">
+        <div class="container">
+            <div class="arts">
+                <div class="arts__item">
+                    <div class="arts__text">
+                        <h2 class="section-header section-header_rev-light wow fadeInLeft" data-wow-delay="0.1s">Для иногородних - проживание <span>бесплатно</span></h2>
+                        <p class="arts__about atext wow fadeInLeft" data-wow-delay="0.2s">Мы арендуем хостел совсем рядом с базой. Вам не нужно платить бешеные деньги за квартиру в Киеве, кроме того - вы можете в любой момент уехать домой, ваше место никто не займет</p>
+                        <div class="arts__accent wow fadeInLeft" data-wow-delay="0.3s">
+                            <div class="big-staraccent big-staraccent_xsshow"><svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg">
+                                    <use xlink:href="#svg_star"></use>
+                                </svg>
+                                <div><span>И до работы рукой подать.</span> <br>Разве не удобно?</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="arts__image wow fadeInRight" data-wow-delay="0.4s"><img class="md" src="img/man-sleeping-on-a-sofa-1.png" alt="" /><img class="sm" src="img/man-sleeping-on-a-sofa-1.sm.png" alt="" /></div>
+                </div>
+                <div class="arts__item">
+                    <div class="arts__image arts__image_left wow fadeInLeft" data-wow-delay="0.4s"><img class="md" src="img/cars.png" alt="" /><img class="sm" src="img/cars.sm.png" alt="" /></div>
+                    <div class="arts__text arts__text_right">
+                        <h2 class="section-header section-header_rev-light wow fadeInRight" data-wow-delay="0.1s"><span>60</span> собственных автомобилей</h2>
+                        <p class="arts__about atext wow fadeInRight" data-wow-delay="0.2s">Благодаря большому автопарку вы всегда можете пересесть на другую машину в случае поломки и ДТП</p>
+                        <div class="arts__accent wow fadeInRight" data-wow-delay="0.3s">
+                            <div class="big-staraccent big-staraccent_xsshow"><svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg">
+                                    <use xlink:href="#svg_star"></use>
+                                </svg>
+                                <div>Никаких простоев <br><span>и потерянного заработка!</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="arts__item">
+                    <div class="arts__text">
+                        <h2 class="section-header section-header_rev-light wow fadeInLeft" data-wow-delay="0.1s"><span>Собственное</span><br> СТО и шиномонтаж</h2>
+                        <p class="arts__about atext wow fadeInLeft" data-wow-delay="0.2s">Мало того, что вы работаете на авто компании - все заботы о технической исправности мы тоже берем на себя.</p>
+                        <div class="arts__accent wow fadeInLeft" data-wow-delay="0.3s">
+                            <div class="big-staraccent big-staraccent_xsshow"><svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg">
+                                    <use xlink:href="#svg_star"></use>
+                                </svg>
+                                <div><span>Вы не вкладываете в машину</span> <br>ни копейки</div>
+                            </div>
+                        </div>
+                        <div class="arts__act wow fadeInLeft" data-wow-delay="0.4s"><button class="button button_b" data-modal="modal-1">Пройти собеседование</button></div>
+                    </div>
+                    <div class="arts__image wow fadeInRight" data-wow-delay="0.5s"><img class="md" src="img/stolviv.png" alt="" /><img class="sm" src="img/stolviv.sm.png" alt="" /></div>
+                </div>
+            </div>
+        </div>
+    </section><!-- ============================-->
+    <!-- КАКОЙ СЕКРЕТ ВЫСОКИХ ЗАРПЛАТ-->
+    <!-- ============================-->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-header section-header_center wow fadeInUp" data-wow-delay="0.1s"><span>Какой секрет</span> высоких зарплат <span>в КиевАвтопарк?</span></h2>
+            <p class="section-subheader wow fadeInUp" data-wow-delay="0.2s">Постоянное обучение и круглосуточная поддержка</p>
+            <div class="secrets">
+                <div class="secrets__item wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="secrets__icon wow zoomIn" data-wow-delay="0.1s"><svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg">
+                            <use xlink:href="#svg_headset"></use>
+                        </svg></div>
+                    <div class="secrets__name wow fadeInUp" data-wow-delay="0.2s"> Выбор локаций</div>
+                    <div class="secrets__comment wow fadeInUp" data-wow-delay="0.2s"> Оператор мониторит эфир и подскажет вам, где сечас большой спрос и можно хорошо заработать</div>
+                </div>
+                <div class="secrets__item wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="secrets__icon wow zoomIn" data-wow-delay="0.2s"><svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg">
+                            <use xlink:href="#svg_handshake"></use>
+                        </svg></div>
+                    <div class="secrets__name wow fadeInUp" data-wow-delay="0.3s"> Решение проблем</div>
+                    <div class="secrets__comment wow fadeInUp" data-wow-delay="0.3s"> При возникновении конфликтов с клиентами, вам помогают их решить</div>
+                </div>
+                <div class="secrets__item wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="secrets__icon wow zoomIn" data-wow-delay="0.3s"><svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg">
+                            <use xlink:href="#svg_time"></use>
+                        </svg></div>
+                    <div class="secrets__name wow fadeInUp" data-wow-delay="0.4s"> Оптимизация времени</div>
+                    <div class="secrets__comment wow fadeInUp" data-wow-delay="0.4s"> Как правильно питаться, как ускорить пересменку, как сократить простои - все расскажем</div>
+                </div>
+                <div class="secrets__item wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="secrets__icon wow zoomIn" data-wow-delay="0.4s"><svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg">
+                            <use xlink:href="#svg_gasoline_refill"></use>
+                        </svg></div>
+                    <div class="secrets__name wow fadeInUp" data-wow-delay="0.5s"> Сокращение расходов</div>
+                    <div class="secrets__comment wow fadeInUp" data-wow-delay="0.5s"> Экономия топлива - это наши с вами деньги. Мы объясним, как свести расходы до минимума</div>
+                </div>
+            </div>
+        </div>
+    </section><!-- ===========-->
+    <!-- МЫ ЖДЕМ ВАС-->
+    <!-- ===========-->
+    <section class="section section_accent section_steps">
+        <div class="container">
+            <h2 class="section-header section-header_center section-header_light wow fadeInUp" data-wow-delay="0.1s"> P.S. <span>Мы ждем Вас!</span></h2>
+            <div class="steps">
+                <div class="steps__item wow fadeInLeft" data-wow-delay="0.1s">
+                    <div class="steps__icon steps__icon_next"><img src="img/icons8-double_left.png" alt="" /></div>
+                    <div class="steps__comment"><button class="button button_a" data-modal="modal-1">Оставьте контакты</button></div>
+                </div>
+                <div class="steps__item wow fadeInLeft" data-wow-delay="0.5s">
+                    <div class="steps__icon steps__icon_next"><img src="img/icons8-double_left.png" alt="" /></div>
+                    <div class="steps__comment">После собеседования мы <br>зарегистрируем вас в системе</div>
+                </div>
+                <div class="steps__item steps__item_end wow fadeInLeft" data-wow-delay="0.9s">
+                    <div class="steps__icon"><img src="img/icons8-cab_stand.png" alt="" /></div>
+                    <div class="steps__comment">Уже завтра вы <br>на смене и зарабатываете деньги</div>
+                </div>
+            </div>
+        </div>
+    </section><!-- =====-->
+    <!-- КАРТА-->
+    <!-- =====-->
+    <div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d897.6347197757782!2d30.442407269282093!3d50.480309790121446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cdbbba3b1d91%3A0x49fee4f130bd45a2!2z0YPQuy4g0J7Qu9GM0LbQuNGH0LAsIDI5LCDQmtC40LXQsiwgMDIwMDA!5e0!3m2!1sru!2sua!4v1587475365362!5m2!1sru!2sua" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div><!-- ======-->
+    <!-- FOOTER-->
+    <!-- ======-->
+    <div class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__copy"><span>© 2020. КиївАвтопарк. Все права защищены</span><img src="img/tkachuk.pro.png" alt="Разработка: tkachuk.pro" /></div>
+                <div class="footer__address">г. Киев, ул. Ольжича 29</div>
+                <div class="footer__call">
+                    <div class="header-call"><a class="header-call__go" href="tel:0665287509"><svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg">
+                                <use xlink:href="#svg_shake_phone"></use>
+                            </svg><span>(066) 528-75-09</span></a><button class="button button_a" data-modal="modal-1">Заказать звонок</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</div>
+
+</html>

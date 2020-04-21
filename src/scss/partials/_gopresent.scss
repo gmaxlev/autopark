@@ -1,0 +1,20 @@
+.gopresent {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gopresent__man {
+  position: absolute;
+  bottom: 0;
+  left: -37px;
+  @include media-breakpoint-down(sm) {
+    display: none;
+  }
+  & > img {
+    max-width: 100%;
+    vertical-align: middle;
+  }
+}

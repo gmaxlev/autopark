@@ -1,0 +1,136 @@
+@keyframes modal-show {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes modal-hide {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes form-sended {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+@keyframes form-sended-ok {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-image: url(../img/comand.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 100%;
+  overflow-y: auto;
+  display: none;
+}
+
+.modal__sended {
+  display: none;
+  text-align: center;
+  animation: form-sended-ok 0.5s;
+  & > img {
+    max-width: 185px;
+    margin-bottom: 15px;
+    @include media-breakpoint-down(sm) {
+      max-width: 140px;
+    }
+  }
+
+  & > span {
+    display: block;
+    color: #fff;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    @include media-breakpoint-down(sm) {
+      font-size: 1.7rem;
+    }
+  }
+}
+
+.modal__sended-button {
+  margin-top: 20px;
+}
+
+.modal_show {
+  display: flex;
+  animation: modal-show 1s;
+}
+
+.modal_hide {
+  display: flex;
+  animation: modal-hide 1s;
+  animation-fill-mode: forwards;
+}
+
+.modal__content {
+  max-width: 675px;
+  position: relative;
+  max-height: 100%;
+}
+
+.modal__content_send {
+  animation: form-sended 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.modal__close {
+  border: 0;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+  background-image: url(../img/close.png);
+  width: 40px;
+  height: 40px;
+  background-size: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  @include media-breakpoint-down(xl) {
+    right: 0;
+  }
+  @include media-breakpoint-down(sm) {
+    z-index: 1;
+    top: 0;
+    right: 0;
+  }
+}

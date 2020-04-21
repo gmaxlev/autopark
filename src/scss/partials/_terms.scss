@@ -1,0 +1,43 @@
+.terms {
+  max-width: 570px;
+  padding-left: 20px;
+  box-sizing: border-box;
+  margin-left: auto;
+  color: $color-1;
+  position: relative;
+  @include media-breakpoint-down(md) {
+    max-width: none;
+    text-align: center;
+    padding-left: 0;
+  }
+  & > * {
+    position: relative;
+    z-index: 2;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -389px;
+    z-index: 1;
+    height: 9999%;
+    width: 9999%;
+    background: linear-gradient(
+      90deg,
+      rgba(34, 34, 43, 0) 0%,
+      rgba(34, 34, 43, 1) 1%,
+      rgba(34, 34, 43, 1) 100%
+    );
+  }
+}
+
+.terms__accent {
+  margin-top: 44px;
+}
+.terms__act {
+  margin-top: 55px;
+  @include media-breakpoint-down(xs) {
+    margin-top: 35px;
+  }
+}

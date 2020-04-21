@@ -1,0 +1,42 @@
+.header-call {
+  display: inline-flex;
+  align-items: center;
+  @include media-breakpoint-down(md) {
+    flex-direction: column;
+  }
+}
+
+.header-call__go {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 23px;
+  @include media-breakpoint-down(xs) {
+    display: none;
+  }
+  &:hover {
+    & > svg {
+      fill: lighten($color: $color-2, $amount: 10%);
+    }
+    & > span {
+      color: #fff;
+    }
+  }
+  @include media-breakpoint-down(md) {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  & > svg {
+    fill: $color-2;
+    width: 26px;
+    height: 26px;
+    transition: fill 0.1s;
+  }
+  & > span {
+    margin-left: 15px;
+    font-weight: 600;
+    color: $color-1;
+    font-size: 0.9375rem;
+    white-space: nowrap;
+    transition: color 0.1s;
+  }
+}

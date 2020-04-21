@@ -1,0 +1,63 @@
+.button {
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  white-space: nowrap;
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+}
+
+.button_a {
+  color: $color-2;
+  background-color: transparent;
+  border: 1px solid $color-2;
+  border-radius: 50px;
+  padding: 11px 21px;
+  letter-spacing: 0.7px;
+  line-height: 1;
+  transition: background-color 0.2s, color 0.2s;
+  text-transform: uppercase;
+  font-size: 0.625rem;
+  font-weight: 800;
+  &:hover {
+    background-color: $color-2;
+    color: #fff;
+  }
+}
+
+.button_b {
+  line-height: 1;
+  color: $color-3;
+  background-color: $color-4;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  border: 0;
+  padding: 23px 37.61px;
+  border-radius: 50px;
+  letter-spacing: 1px;
+  transition: background-color 0.2s;
+  &:hover {
+    background-color: darken($color-4, 10%);
+  }
+}
+
+.button_c {
+  line-height: 1;
+  color: #22222b;
+  background-color: $color-4;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  border: 0;
+  padding: 10px 20px;
+  border-radius: 50px;
+  letter-spacing: 1px;
+  transition: background-color 0.2s;
+  margin-top: 20px;
+  &:hover {
+    background-color: darken($color-4, 10%);
+  }
+}

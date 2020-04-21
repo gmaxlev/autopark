@@ -7,13 +7,30 @@ $grid-breakpoints: (
   sm: 576px,
   md: 768px,
   lg: 992px,
-  xl: 1200px
+  xl: 1200px,
+  xxl: 1350px
 ) !default;
 
 /**
   Часто используемые цвета
 */
+$color-1: #ebeae9;
+$color-2: #f5c55c;
+$color-3: #22222b;
+$color-4: #f4c35c;
+$color-5: #f4c15c;
+$color-6: #696970;
+$color-7: #e4b44e;
+$color-8: #f5b85c;
+$color-9: #f4c05c;
+$color-10: #f4c45c;
+$color-11: #eabd59;
+$color-12: #e8e8ea;
+$color-13: #f5ba5c;
+$color-14: #e5e5e5;
+$color-15: #ffcccc;
 
 /* 
   Шрифты
 */
+$font-1: "Avenir Next Cyr", sans-serif;

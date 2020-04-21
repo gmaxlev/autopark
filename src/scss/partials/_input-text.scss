@@ -1,0 +1,47 @@
+.input-text {
+  position: relative;
+  input {
+    border: 0;
+    outline: 0;
+    padding: 20px 30px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    color: $color-3;
+    transition: background-color 0.5s;
+    @include media-breakpoint-down(sm) {
+      font-size: 16px;
+    }
+    &:disabled {
+      opacity: 0.3;
+      & + .input-text__icon {
+        & > svg {
+          opacity: 0.3;
+        }
+      }
+    }
+    &:focus {
+      background-color: darken(#fff, 2%);
+      & + .input-text__icon {
+        & > svg {
+          fill: $color-2;
+        }
+      }
+    }
+  }
+}
+
+.input-text__icon {
+  position: absolute;
+  bottom: 15px;
+  right: 23px;
+  z-index: 2;
+  & > svg {
+    width: 22px;
+    height: 22px;
+    fill: $color-14;
+    transition: fill 0.5s;
+  }
+}

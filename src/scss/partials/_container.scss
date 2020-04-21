@@ -1,0 +1,13 @@
+.container {
+  max-width: 1210px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  @include media-breakpoint-down(xs) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
