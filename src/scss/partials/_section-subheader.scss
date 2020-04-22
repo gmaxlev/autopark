@@ -4,6 +4,8 @@
   line-height: 1.5rem;
   margin-top: -40px;
   margin-bottom: 53px;
+  position: relative;
+  z-index: 2;
   @include media-breakpoint-down(sm) {
     margin-bottom: 25px;
     margin-top: 0;

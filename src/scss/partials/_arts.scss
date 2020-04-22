@@ -1,6 +1,8 @@
 .arts {
   color: $color-1;
   margin-bottom: -100px;
+  position: relative;
+  z-index: 2;
   @include media-breakpoint-down(xxl) {
     margin-bottom: 0;
   }

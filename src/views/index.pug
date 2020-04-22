@@ -73,6 +73,13 @@ html(lang="ru")
 
     .wrapper
 
+        .lines
+            .container.container_rel.lines__content
+                    span
+                    span
+                    span
+                    span
+
         // ======
         // HEADER
         // ======
@@ -125,7 +132,7 @@ html(lang="ru")
             .container
                 .income
                     .income__about
-                        h2.section-header.wow.fadeInUp Сколько зарабатывают <br><span>водители КиевАвтопар</span>
+                        h2.section-header.wow.fadeInUp Сколько зарабатывают <br><span>водители КиевАвтопарк</span>
                         p.ptext.wow.fadeInUp(data-wow-delay="0.1s") В других службах вам могут обещать заработок до 40 000 грн. Но это без учета комиссии и расходов на топливо.
                         p.paccent.wow.fadeInUp(data-wow-delay="0.2s") Наши водители в летний период зарабатывают
                         .income__by.wow.fadeInUp(data-wow-delay="0.3s")
@@ -227,7 +234,21 @@ html(lang="ru")
                                 img(src="img/loading.gif", alt="").review__onLoading
                             .review__video(data-video-id="review-video-5")
                                 #review-video-5
-                    .reviews__act.wow.zoomIn(data-wow-delay="0.6s")
+                    .reviews__item.wow.zoomIn(data-wow-delay="0.6s")
+                        .review(href="https://www.youtube.com/watch?v=9brm2MPVDHg" data-fancybox="reviews" style="background-image: url(img/review-6.png)")
+                            button.review__watch
+                                img(src="img/icons8-play_record.png", alt="").review__onReady
+                                img(src="img/loading.gif", alt="").review__onLoading
+                            .review__video(data-video-id="review-video-6")
+                                #review-video-6
+                    .reviews__item.wow.zoomIn(data-wow-delay="0.7s")
+                        .review(href="https://www.youtube.com/watch?v=3VP_o9tVeRg" data-fancybox="reviews" style="background-image: url(img/review-7.png)")
+                            button.review__watch
+                                img(src="img/icons8-play_record.png", alt="").review__onReady
+                                img(src="img/loading.gif", alt="").review__onLoading
+                            .review__video(data-video-id="review-video-7")
+                                #review-video-7
+                    .reviews__act.wow.zoomIn(data-wow-delay="0.8s")
                         button.button.button_b(data-modal="modal-1") Узнайте о вакансиях
 
         // ====================================
@@ -283,6 +304,13 @@ html(lang="ru")
                 h2.section-header.section-header_center.wow.fadeInUp(data-wow-delay="0.1s") <span>Какой секрет</span> высоких зарплат <span>в КиевАвтопарк?</span>
                 p.section-subheader.wow.fadeInUp(data-wow-delay="0.2s") Постоянное обучение и круглосуточная поддержка
                 .secrets
+                    .secrets__stars
+                        span
+                            +svg-sprite('svg_star_2', 'svg-sprite')
+                        span
+                            +svg-sprite('svg_star_2', 'svg-sprite')
+                        span
+                            +svg-sprite('svg_star_2', 'svg-sprite')
                     .secrets__item.wow.fadeInUp(data-wow-delay="0.1s") 
                         .secrets__icon.wow.zoomIn(data-wow-delay="0.1s")
                             +svg-sprite('svg_headset', 'svg-sprite')

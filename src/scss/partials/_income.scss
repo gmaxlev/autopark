@@ -1,6 +1,8 @@
 .income {
   display: flex;
   justify-content: space-between;
+  position: relative;
+  z-index: 2;
   @include media-breakpoint-down(md) {
     flex-wrap: wrap;
   }

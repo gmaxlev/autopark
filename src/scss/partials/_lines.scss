@@ -1,0 +1,24 @@
+.lines {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.lines__content {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  & > span {
+    width: 1px;
+    background-color: rgba(117, 117, 117, 0.14);
+    &:nth-child(2) {
+      transform: translateX(-6px);
+    }
+    &:nth-child(3) {
+      transform: translateX(6px);
+    }
+  }
+}

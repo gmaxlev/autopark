@@ -1,5 +1,7 @@
 .map {
   height: 527px;
+  position: relative;
+  z-index: 2;
   @include media-breakpoint-down(md) {
     height: 400px;
   }

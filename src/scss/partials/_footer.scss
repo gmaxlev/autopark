@@ -1,6 +1,7 @@
 .footer {
   background-color: $color-3;
   position: relative;
+  z-index: 2;
 }
 .footer__content {
   display: flex;

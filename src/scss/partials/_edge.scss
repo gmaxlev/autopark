@@ -3,6 +3,7 @@
   box-sizing: border-box;
   padding: 14px 43px;
   box-shadow: 0 6px 13px rgba(120, 120, 120, 0.25);
+  background-color: #fff;
   @include media-breakpoint-down(xs) {
     padding: 20px;
   }

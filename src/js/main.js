@@ -175,6 +175,14 @@ $(document).ready(function() {
       {
         videoId: "g4IQRkv5vyc",
         domId: "review-video-5"
+      },
+      {
+        videoId: "9brm2MPVDHg",
+        domId: "review-video-6"
+      },
+      {
+        videoId: "3VP_o9tVeRg",
+        domId: "review-video-7"
       }
     ];
 

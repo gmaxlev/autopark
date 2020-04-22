@@ -72,6 +72,16 @@
 	height: 43px;
 }
 
+.svg-svg_star_2 {
+	@extend %svg-common;
+	background-position: 92.85714285714286% 79.36507936507937%;
+}
+
+.svg-svg_star_2-dims {
+	width: 24px;
+	height: 24px;
+}
+
 .svg-svg_time {
 	@extend %svg-common;
 	background-position: 100% 50%;
